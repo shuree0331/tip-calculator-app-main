@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./images/">
+    <link rel="stylesheet" href="./index.css">
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="./images/logo.svg" alt="Splitter Logo">
+      </div>
+      
+      <div class="box">
+        <div class="input">
+          <div id="bill-section">
+            <div class="brabra">
+              <h2>Bill</h2>
+              <div id="emsg-bill" class="emsg-bill"></div>
+            </div>
+            
+              <div class="bill-input">
+                <div class="bill-image">
+                  <img src="./images/icon-dollar.svg" alt="Dollar Icon">
+                </div>
+                <input onchange="checkBill()" class="bill-amount" id="bill-amount" placeholder=0 onfocus="this.placeholder=''" required/>
+              </div> 
+            
+          </div>
+            
+          <div id="tip-section">
+            <h2>Select Tip %</h2>
+            <div class="tip-button">
+              <button class="percent">5%</button>
+              <button class="percent">10%</button>
+              <button class="percent">15%</button>
+              <button class="percent">25%</button>
+              <button class="percent">50%</button>
+              <input id="custom" type="text" placeholder="Custom" onfocus="this.placeholder=''"/>
+            </div>
+          </div>  
+
+          <div id="people-section">
+            <div class="brabra">
+              <h2>Number of People</h2>
+              <div id="emsg-people" class="emsg-people"></div>
+            </div>
+            
+            <div class="people-input">
+              <div class="people-image">
+                <img src="./images/icon-person.svg" alt="Person Icon">
+              </div>
+              <input onchange="checkPeople()" class="people-number" id="people-number" placeholder=0 onfocus="this.placeholder=''" required/>
+            </div>    
+          </div>
+        </div>
+        
+
+        <div class="result">
+          <div id="tip-amount">
+            <div class="tip-amount">
+              <h2>Tip Amount</h2>
+              <p>/ person</p>
+            </div>
+            <div class="amount" id="amount"></div>
+          </div>
+          <div id="total">
+            <div class="total">
+              <h2>Total</h2>
+              <p>/ person</p>
+            </div>
+            <div class="total-amount" id="total-amount"></div>
+          </div>  
+          
+          <button class="reset" id="reset">RESET</button> 
+        </div>
+        
+      </div> 
+    </div> 
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Shuree</a>.
+    </div>
+  </body>
+<script src="./index.js"></script>
+</html>

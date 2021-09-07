@@ -128,7 +128,7 @@ body {
     margin-top: 10px;
 }
 
-.tip-button button {
+.percent{
     background-color: hsl(183, 100%, 15%);
     border-radius: 4px;
     box-shadow: none;
@@ -266,5 +266,102 @@ img {
 
 
 @media screen and (max-width: 375px) {
+    .container {
+        justify-content: end;
+    }
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        height: 720px;
+        margin-bottom: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .attribution {
+        visibility: hidden;
+    }
+
+    .logo img{
+        margin: 25px;
+        margin: 30px;
+        height: 50px;
+    }
+
+    .input {
+        width: 320px;
+        margin-bottom: 70px;
+        margin-top: 15px;
+    }
+
+    .result {
+        width: 310px;
+        height: 230px;
+        padding: 10px;
+        margin: 15px;
+    }
+
+    .bill-input, #tip-section, .people-input {
+        width: 315px;
+        margin-bottom: 20px;
+    }
+
+    .result p {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin: 0px;
+        margin-bottom: 5px;
+    }
+
+    #tip-amount, #total {
+        height: 70px;
+        margin-left: 15px;
+    }
+
+    .amount, .total-amount {
+        margin-right: 15px;
+    }
+
+    .result button, .reset:enabled {
+        width: 280px;
+        margin-left: 15px;
+        margin-top: 30px;
+    }
+
+    .tip-button {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        column-gap: 15px;
+        row-gap: 15px;
+        margin-top: 15px;
+    }
+
+    .percent {
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        font-size: 24px;
+    }
+
+    img {
+        height: 18px;
+    }
+
+    .bill-amount, .people-number {
+        font-size: 26px;
+    }
+
+    #custom {
+        width: 145px;
+        height: 48px;
+        font-size: 24px;
+    }
 
 }

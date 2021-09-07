@@ -51,8 +51,7 @@ function checkPeople () {
 
 bill.addEventListener('change', (element) => { 
     billInput = element.target.value
-    // resetButton.onclick = () => {
-    //     element.target.value = 0;}
+    
     update()
 })
 
@@ -61,33 +60,37 @@ people.addEventListener('change', (element) => {
     if (typeof element !== 'number' || element <= 0) {
         valid = false;
         people.classList.add("error");
-        // error.innerHTML = "Can't be zero";
+        
     }
     
     peopleInput = element.target.value
-    // resetButton.onclick = () => {
-    //     element.target.value = 0;}
     
     update()
 })
 
 percent.forEach(element => {
     element.addEventListener('click', function (e) {
-        console.log(e)
+        
         percent.forEach(element => {
             element.classList.remove('percent-active')
         } )
         
         element.classList.add('percent-active')
         tipPercent = +e.target.innerHTML.replace("%", "") / 100
-        
-        // resetButton.onclick = () => {
-        //     tipPercent = undefined;}
-        update()
-        
+        document.getElementById("custom").value = '';
     })
-    
-});
+})
+
+custom.addEventListener('change', (cus) => {
+    console.log(cus)
+    percent.forEach(element => {
+        element.classList.remove('percent-active')
+    } )
+    tipPercent = +cus.target.value.replace("%", "") / 100
+
+    console.log(tipPercent)
+    update()
+})
 
 
 function update () {
@@ -109,7 +112,7 @@ function update () {
         document.getElementById("total-amount").innerHTML
     }
     
-    
+    console.log(tipPercent)
     
     resetButton.onclick = () => {   
 
@@ -119,6 +122,8 @@ function update () {
         peopleInput = undefined;
         document.querySelectorAll(".percent").value = 0;
         tipPercent = undefined;
+        document.getElementById("custom").value = '';
+
         percent.forEach(element => {
             element.classList.remove('percent-active')
 
@@ -138,6 +143,3 @@ function update () {
     // console.log('bill', billInput, 'people', peopleInput, 'tip', tipPercent)
     
 }
-
-
-

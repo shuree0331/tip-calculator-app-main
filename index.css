@@ -117,6 +117,7 @@ body {
     color: red;
     font-size: 12px;
     visibility: hidden;
+    font-weight: bold;
 }
 
 .tip-button {

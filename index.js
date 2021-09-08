@@ -21,11 +21,9 @@ let peopleInput;
 let tipPercent;
 resetButton.disabled = true;
 
-
+// checks whether input is more than 0
 function checkBill () {
-    // let valid = true
     if (typeof +bill.value !== 'number' || isNaN(+bill.value) || +bill.value <= 0) {
-        // valid = false;
         billSection.classList.add("error");
         errorBill.innerHTML = "Can't be zero";
     } else {
@@ -38,13 +36,13 @@ function checkBill () {
 
 function checkPeople () {
     if (typeof +people.value !== 'number' || isNaN(+people.value) || +people.value <= 0) {
-        // valid = false;
         peopleSection.classList.add("error");
         errorPeople.innerHTML = "Can't be zero";
-    } else {
-        
+        false;
+    } else { 
         peopleSection.classList.remove("error");
         errorPeople.innerHTML = "";
+        true;
     }
     update()
 }
@@ -56,13 +54,6 @@ bill.addEventListener('change', (element) => {
 })
 
 people.addEventListener('change', (element) => {
-    let valid = true
-    if (typeof element !== 'number' || element <= 0) {
-        valid = false;
-        people.classList.add("error");
-        
-    }
-    
     peopleInput = element.target.value
     
     update()
@@ -70,7 +61,6 @@ people.addEventListener('change', (element) => {
 
 percent.forEach(element => {
     element.addEventListener('click', function (e) {
-        
         percent.forEach(element => {
             element.classList.remove('percent-active')
         } )
@@ -79,16 +69,15 @@ percent.forEach(element => {
         tipPercent = +e.target.innerHTML.replace("%", "") / 100
         document.getElementById("custom").value = '';
     })
+    update()
 })
 
 custom.addEventListener('change', (cus) => {
-    console.log(cus)
     percent.forEach(element => {
         element.classList.remove('percent-active')
     } )
     tipPercent = +cus.target.value.replace("%", "") / 100
 
-    console.log(tipPercent)
     update()
 })
 
@@ -98,29 +87,28 @@ function update () {
     let totalPerPerson;
     resetButton.disabled = false;
     if (billInput !== undefined && tipPercent !== undefined && peopleInput !== undefined) {
-        
-        tipPerPerson = billInput * tipPercent / peopleInput
-        totalPerPerson = billInput / peopleInput + tipPerPerson
+        if (isNaN(peopleInput) || peopleInput === '0') {
+            tipPerPerson = '0.00'
+            totalPerPerson = '0.00'
+        } else {
+            tipPerPerson = billInput * tipPercent / peopleInput
+            totalPerPerson = billInput / peopleInput + tipPerPerson
+        }
 
         document.getElementById("amount").innerHTML = '$' + tipPerPerson.toFixed(2);
-        document.getElementById("total-amount").innerHTML = '$' + totalPerPerson.toFixed(2);    
-    } else if (billInput === 0 || tipPercent === 0 || peopleInput === 0) {
-        document.getElementById("amount").innerHTML
-        document.getElementById("total-amount").innerHTML
+        document.getElementById("total-amount").innerHTML = '$' + totalPerPerson.toFixed(2);
     } else {
         document.getElementById("amount").innerHTML
         document.getElementById("total-amount").innerHTML
     }
-    
-    console.log(tipPercent)
-    
+
     resetButton.onclick = () => {   
 
-        document.getElementById("bill-amount").value = 0;
+        document.getElementById("bill-amount").value = '';
         billInput = undefined;
-        document.getElementById("people-number").value = 0;
+        document.getElementById("people-number").value = '';
         peopleInput = undefined;
-        document.querySelectorAll(".percent").value = 0;
+        document.querySelectorAll(".percent").value = '';
         tipPercent = undefined;
         document.getElementById("custom").value = '';
 
@@ -140,6 +128,4 @@ function update () {
         resetButton.disabled = true;
 
     }
-    // console.log('bill', billInput, 'people', peopleInput, 'tip', tipPercent)
-    
 }

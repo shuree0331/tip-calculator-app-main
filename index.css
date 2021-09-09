@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px), (max-device-height: 812px) {
 
     * {
         font-family: 'Space Mono', monospace;
@@ -270,7 +270,7 @@
 
 }
 
-@media screen and (max-width: 540px), (max-device-height: 812px) {
+@media screen and (max-width: 540px) {
     .container {
         justify-content: end;
     }

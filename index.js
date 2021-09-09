@@ -111,6 +111,7 @@ function update () {
         document.querySelectorAll(".percent").value = '';
         tipPercent = undefined;
         document.getElementById("custom").value = '';
+        document.getElementById("custom").placeholder = 'Custom';
 
         percent.forEach(element => {
             element.classList.remove('percent-active')
